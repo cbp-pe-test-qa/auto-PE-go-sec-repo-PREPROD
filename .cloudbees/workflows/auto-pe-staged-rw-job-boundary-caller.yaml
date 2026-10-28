@@ -1,21 +1,17 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: auto-pe-staged-rw-job-boundary-caller
-
 on:
   workflow_dispatch:
-
 metadata:
   stages/v1alpha1:
     - name: Caller Stage
       jobs:
         - call-reusable
         - independent-job
-
 jobs:
   call-reusable:
-    uses: .cloudbees/workflows/auto-pe-rw-job-boundary.yaml@main
-
+    uses: .cloudbees/workflows/auto-pe-rw-job-boundary.yaml
   independent-job:
     steps:
       - name: independent step
